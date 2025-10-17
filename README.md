@@ -1,83 +1,66 @@
-🤖 RAG Chatbot for Company Documents (Google Drive + Gemini)
+# 🤖 RAG Chatbot for Company Documents (Google Drive + Gemini)
 
-Unlock the power of your company documents with AI!
-This workflow is a Retrieval-Augmented Generation (RAG) chatbot that answers employee questions based on Google Drive documents. It automatically indexes new or updated files into a Pinecone vector database, ensuring accurate, real-time responses.
-Powered by Google Gemini AI for embeddings and chat responses.
+**Unlock the power of your company documents with AI!**  
+This workflow is a **Retrieval-Augmented Generation (RAG) chatbot** that answers employee questions based on **Google Drive documents**. It automatically indexes new or updated files into a **Pinecone vector database**, ensuring **accurate, real-time responses**.  
+Powered by **Google Gemini AI** for embeddings and chat responses.  
 
-⚙️ How It Works
+---
 
-📂 Google Drive Triggers
+## ⚙️ How It Works
 
-Detects new files & updates in a specified folder.
+1. **📂 Google Drive Triggers**  
+   - Detects **new files** & **updates** in a specified folder.  
 
-📝 Automated Indexing
+2. **📝 Automated Indexing**  
+   - **Downloads** the file ✅  
+   - **Loads document content** 📄  
+   - **Splits content** into smaller chunks ✂️  
+   - **Generates embeddings** with **Gemini AI** 💡  
+   - **Indexes chunks** in **Pinecone vector database** 📊  
 
-Downloads the file ✅
+3. **💬 Chat Interface**  
+   - Users ask a **question** ❓  
+   - **AI Agent retrieves** relevant info from Pinecone 🔍  
+   - Sends **context + question** to **Google Gemini Chat Model (gemini-pro)** 🤖  
+   - Generates a **comprehensive answer** 🏆  
+   - Uses **Window Buffer Memory** for **context-aware conversations** 🧠  
 
-Loads document content 📄
+---
 
-Splits content into smaller chunks ✂️
+## 🛠️ Setup Steps
 
-Generates embeddings with Gemini AI 💡
+1. **🌐 Google Cloud Project & Vertex AI**  
+   - Create a **Google Cloud project**  
+   - Enable **Vertex AI API**  
 
-Indexes chunks in Pinecone vector database 📊
+2. **🔑 API Keys**  
+   - **Google AI API Key** (Google AI Studio)  
+   - **Pinecone API Key** → create index **`company-files`**  
 
-💬 Chat Interface
+3. **📁 Google Drive Folder**  
+   - Create a **dedicated folder** for your documents  
 
-Users ask a question ❓
+4. **🔧 n8n Credentials**  
+   - Configure:  
+     - **Google Drive OAuth2**  
+     - **Google Gemini (PaLM) API**  
+     - **Pinecone API**  
 
-AI Agent retrieves relevant info from Pinecone 🔍
+5. **🚀 Import & Configure Workflow**  
+   - **Import** into n8n  
+   - Update **Google Drive Trigger nodes** to watch your folder  
+   - Configure **Pinecone Vector Store nodes** to use **`company-files`** index  
 
-Sends context + question to Google Gemini Chat Model (gemini-pro) 🤖
+---
 
-Generates a comprehensive answer 🏆
+## ⚡ Features
 
-Uses Window Buffer Memory for context-aware conversations 🧠
+- 🔹 **Real-time indexing** of new or updated documents  
+- 🔹 **Vector retrieval** for **precise answers**  
+- 🔹 **Context-aware conversation** using memory nodes 🧠  
+- 🔹 Powered by **Google Gemini AI** for embeddings & chat 💡  
+- 🔹 Fully automated workflow in **n8n** ⚙️  
 
-🛠️ Setup Steps
+---
 
-🌐 Google Cloud Project & Vertex AI
-
-Create a Google Cloud project
-
-Enable Vertex AI API
-
-🔑 API Keys
-
-Google AI API Key (Google AI Studio)
-
-Pinecone API Key → create index company-files
-
-📁 Google Drive Folder
-
-Create a dedicated folder for your documents
-
-🔧 n8n Credentials
-
-Configure:
-
-Google Drive OAuth2
-
-Google Gemini (PaLM) API
-
-Pinecone API
-
-🚀 Import & Configure Workflow
-
-Import into n8n
-
-Update Google Drive Trigger nodes to watch your folder
-
-Configure Pinecone Vector Store nodes to use company-files index
-
-⚡ Features
-
-🔹 Real-time indexing of new or updated documents
-
-🔹 Vector retrieval for precise answers
-
-🔹 Context-aware conversation using memory nodes 🧠
-
-🔹 Powered by Google Gemini AI for embeddings & chat 💡
-
-🔹 Fully automated workflow in n8n ⚙️
+ 
